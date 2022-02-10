@@ -1,4 +1,4 @@
-# geo455_2
+# geo455
 
 This repository is for uploading my class assignments and final project.
 
