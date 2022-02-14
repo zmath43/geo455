@@ -31,6 +31,7 @@
                 letter-spacing: .04em;
             }
             .leftbar {
+                display: flex;
                 position: fixed;
                 width: 25%;
                 height: 100vh;
@@ -40,10 +41,10 @@
                 z-index: 800;
             }
             .lefttext {
-                margin-left: 20px;
-                margin-top: 15px;
+                margin-left: 15px;
                 margin-right: 15px;
                 font-size: 1.05em;
+                letter-spacing: .04em;
             }
             .footer {
                 display: flex;
@@ -62,6 +63,11 @@
                 display: block;
                 margin-left: auto;
                 margin-right: auto;
+            }
+            ul {
+                columns: 2;
+                -webkit-columns: 2;
+                -moz-columns: 2;
             }
         </style>
     </head>
@@ -87,8 +93,9 @@
                 <li>Zermatt</li>
                 <li>Zurich</li>
             </ul>
+            <img src="Pictures/GstaadCow.jpg" width=325><p><i>Photo credits: David Mathias, JP-Photography, Pexels, Pixabay, and Wikimedia Commons</i></p>
             </div>
-            <img src="Pictures/GstaadCow.jpg" width=300><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>Photo credits: David Mathias, JP-Photography, &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pexels, Pixabay, and Wikimedia Commons</i></p> 
+            <!--<img src="Pictures/GstaadCow.jpg" width=300><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>Photo credits: David Mathias, JP-Photography, &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pexels, Pixabay, and Wikimedia Commons</i></p>--> 
         </div>
         <div class="footer"><i>Map developed by Zack Mathias</i>
         </div>
