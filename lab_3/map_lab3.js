@@ -13,7 +13,7 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
 L.control.zoom({position:"bottomright"}).addTo(myMap);
 
 var myIcon = L.icon({
-    iconUrl: "../Pictures/SwissShield.PNG",
+    iconUrl: "../Pictures/SwissShield.png",
     iconSize: [30, 35],
     iconAnchor: [15, 35],
     popupAnchor: [0, -20],
