@@ -1,10 +1,97 @@
 <!DOCTYPE html>
 <html>
     <head>
-       <title>geo455_lab3</title>
+       <title>geo455_lab2</title>
+        <link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Lora" rel="stylesheet">
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
+        <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+
+        <style>
+            body {
+                margin: 0;
+            }
+            #map {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                width: 100%;
+            }
+            .title {
+                display: flex;
+                position: fixed;
+                width: 100%;
+                height: 55px;
+                background-color: #C92626;
+                color: white;
+                top: 0;
+                z-index: 800;
+                align-items: center;
+                justify-content: center;
+                letter-spacing: .04em;
+            }
+            .leftbar {
+                position: fixed;
+                width: 25%;
+                height: 100vh;
+                background-color: #E6E6E6;
+                top: 0;
+                margin-top: 55px;
+                z-index: 800;
+            }
+            .lefttext {
+                margin-left: 20px;
+                margin-top: 15px;
+                margin-right: 15px;
+                font-size: 1.05em;
+            }
+            .footer {
+                display: flex;
+                position: fixed;
+                width: 100%;
+                height: 30px;
+                background-color: white;
+                bottom: 0;
+                z-index: 800;
+                align-items: center;
+                justify-content: center;
+                font-size: 1.25em;
+                letter-spacing: .04em;
+            }
+            img {
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        </style>
     </head>
-         <body bgcolor="#EDDD9E">
-       <h1 align="center">Lab 3</h1>
-       
+    <body bgcolor="#EDDD9E">
+       <h1 id="title">Lab 2</h1>
+        <div id="map">
+        </div>
+        <div class="title"><h1>Lab 3 - Places of Switzerland</h1>
+        </div>
+        <div class="leftbar">
+            <div class="lefttext"><p>I chose to keep the Swiss locales (with the addition of Basel) because I lived in a small town near Montreux from 2009 to 2013. Many of these places I went to very frequently and are quite special to me, while others I only visited once or twice.</p>
+            <ul>
+                <li>Basel</li>
+                <li>Bern</li>
+                <li>Château de Chillon</li>
+                <li>Geneva</li>
+                <li>Interlaken</li>
+                <li>Jungfrau</li>
+                <li>Lausanne</li>
+                <li>Lucerne</li>
+                <li>Montreux</li>
+                <li>Vevey</li>
+                <li>Zermatt</li>
+                <li>Zurich</li>
+            </ul>
+            </div>
+            <img src="Pictures/GstaadCow.jpg" width=300><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>Photo credits: David Mathias, Pexels, Pixabay,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; and Wikimedia</i></p> 
+        </div>
+        <div class="footer"><i>Map developed by Zack Mathias</i>
+        </div>
+        <script src="map_lab3.js"></script>
      </body>
 </html>
