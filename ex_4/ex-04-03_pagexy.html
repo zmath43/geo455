@@ -5,11 +5,17 @@
     </head>
     <body>
         <p id="position"></p>
+        <p id="press">Type a key, any key</p>
         <script>
             var page_coord = document.getElementById("position");
             document.addEventListener("mousemove", function(e) {
                 page_coord.innerHTML = e.pageX + " " + e.pageY;
             });
+            
+            var button = document.getElementById("press");
+            document.addEventListener("keydown", function(e) {
+                button.innerHTML = e.key;
+            })
         </script>
     </body>
 </html>
