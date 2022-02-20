@@ -59,6 +59,7 @@ var topo = L.tileLayer.wms('http://ows.mundialis.de/services/service?', {
 //Create the map variable
 
 var mymap = L.map("map", {
+    tap: false,
     center: [6.794952075439587, 20.91148703911037],
     zoom: 3,
     layers: [grayscale, landmarks]});
