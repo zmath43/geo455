@@ -15,12 +15,15 @@
         var hour= new Date().getHours() //returns the hour (0 to 23) of the current time.
         var greeting ; 
         
-        if (hour < 18) {
+        if (hour < 12) {
             greeting = "Good day!";
+        }
+        else {
+            greeting = "Good night!"
         }
         document.getElementById("good_day").innerHTML = greeting;
         
-        if (hour < 16) {// change the hour values based on the current time.
+        if (hour < 18) {// change the hour values based on the current time.
             greeting = "Good day!";
         } else {
             greeting = "Good evening!";
@@ -29,7 +32,7 @@
         
         if (hour < 12) {
             greeting = "Good Morning!";
-        } else if (hour <18){
+        } else if (hour <16){
             greeting = "Good Afternoon!";
         } else {
             greeting = "Good Evening!";

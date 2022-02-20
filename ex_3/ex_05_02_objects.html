@@ -6,20 +6,23 @@
 
     <p id="arr"></p>
     <p id="arr_ind"></p>
+    <p id="arr_ind2"></p>
     <p id="arr_multd"></p>
     <p id="arr_multd_ind"></p>
     <p id="person_obj"></p>
+    <p id="team_obj"></p>
 
 
     <script>
         var a= [2, 3, 4, 3.5];
         document.getElementById("arr").innerHTML = "This is a simple array: "+ a;
-        document.getElementById("arr_ind").innerHTML = "This is the 4th element in the above array: "+ a[3];
+        document.getElementById("arr_ind").innerHTML = "This is the 2nd element in the above array: "+ a[1];
+        document.getElementById("arr_ind2").innerHTML = "This is the 1st element in the above array: "+ a[0];
         <!--- change to a[1] and check--->
 
         var d = [[1, 2, 3], [4, 5, 6], [7, 8, 9]];
         document.getElementById("arr_multd").innerHTML = "This is a multi-dimensional array: "+ d;
-        document.getElementById("arr_multd_ind").innerHTML = "This is second item in the 3rd element in a multi-dimensional array: "+ d[2][1];
+        document.getElementById("arr_multd_ind").innerHTML = "This is the first item in the 2nd element in a multi-dimensional array: "+ d[1][0];
         //change to d[1][0] and check
         
         // Create an object:
@@ -32,8 +35,14 @@
         
         document.getElementById("person_obj").innerHTML = person.firstName + " is " + person.age + " years old.";
 
-
-    
+        var team = {
+            firstName: "Crystal",
+            lastName: "Palace",
+            location: "London",
+            colors: "blue and red",
+        };
+        
+        document.getElementById("team_obj").innerHTML = team.firstName + " " + team.lastName + " is in " + team.location + " and they wear " + team.colors + ".";
 
     </script>
 
