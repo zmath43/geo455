@@ -109,11 +109,11 @@ coords = [
 var loc = L.layerGroup();
 
 L.marker(coords[0], {icon: myIcon1}).bindPopup(greatwallPopup, customOptions).addTo(loc);
-L.marker(coords[1], {icon: myIcon2}).bindPopup(chichenPopup, customOptions).addTo(loc);
+L.marker(coords[1], {icon: myIcon2}).bindPopup(coloPopup, customOptions).addTo(loc);
 L.marker(coords[2], {icon: myIcon3}).bindPopup(petraPopup, customOptions).addTo(loc);
-L.marker(coords[3], {icon: myIcon4}).bindPopup(machuPopup, customOptions).addTo(loc);
-L.marker(coords[4], {icon: myIcon5}).bindPopup(christPopup, customOptions).addTo(loc);
-L.marker(coords[5], {icon: myIcon6}).bindPopup(coloPopup, customOptions).addTo(loc);
+L.marker(coords[3], {icon: myIcon4}).bindPopup(chichenPopup, customOptions).addTo(loc);
+L.marker(coords[4], {icon: myIcon5}).bindPopup(machuPopup, customOptions).addTo(loc);
+L.marker(coords[5], {icon: myIcon6}).bindPopup(christPopup, customOptions).addTo(loc);
 L.marker(coords[6], {icon: myIcon7}).bindPopup(tajPopup, customOptions).addTo(loc);
 loc.addTo(mymap);
 
