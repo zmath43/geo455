@@ -246,7 +246,7 @@ getISS();
 setInterval(getISS, 1000);
 
 L.easyButton(('<img src="images/iss200.png", height=55%>'), function(btn, map){
-    map.setView({ latitude, longitude });
+    map.setView([{ latitude, longitude }], {animate: true});
 }).addTo(mymap);
 
 
