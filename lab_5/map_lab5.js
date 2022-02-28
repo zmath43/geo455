@@ -230,6 +230,7 @@ async function getISS() {
     var data = await response.json();
     var { latitude, longitude } = data;
     
+    
     //Change the marker location based on the updated reading but keep the map view in default center
     
     marker.setLatLng([latitude, longitude]);
@@ -241,19 +242,13 @@ async function getISS() {
     document.getElementById('lon').textContent = longitude.toFixed(3);
 }
 
-getISS();
+L.easyButton(('<img src="images/iss200.png", height=55%>'), function(btn, map){
+    map.panTo({ latitude, longitude });
+}).addTo(mymap);
 
 setInterval(getISS, 1000);
 
-L.easyButton(('<img src="images/iss200.png", height=55%>'), function(btn, map){
-    map.setView([{ latitude, longitude }], {animate: true});
-}).addTo(mymap);
-
-
-
-
-
-
+getISS();
 
 
 
