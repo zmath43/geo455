@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+    
+    
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.8.2.js"></script>
+<style type="text/css">
+#overlay {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-color: #000;
+filter:alpha(opacity=70);
+-moz-opacity:0.7;
+-khtml-opacity: 0.7;
+opacity: 0.4;
+z-index: 100;
+display: none;
+}
+.cnt223 a{
+text-decoration: underline;
+color: grey;
+font-size: 20px;
+font-family: sans-serif;
+}
+.popup{
+width: 100%;
+margin: 0 auto;
+margin-top: 7%;
+display: none;
+position: fixed;
+z-index: 101;
+}
+.cnt223{
+min-width: 600px;
+width: 600px;
+min-height: 125px;
+margin: 100px auto;
+background: #f3f3f3;
+position: relative;
+z-index: 103;
+padding: 15px 35px;
+border-radius: 5px;
+box-shadow: 0 2px 5px #000;
+}
+.cnt223 p{
+display: inline;
+clear: both;
+color: #555555;
+font-size: 20px;
+font-family: sans-serif;
+}
+.cnt223 p a{
+font-size 20px;
+text-decoration: none;
+color: black;
+border: solid black 2px;
+padding: 8px;
+padding-left: 15px;
+padding-right: 15px;
+}
+.cnt223 p a:hover {
+background-color: black;
+color: white;
+}
+.cnt223 .x{
+float: right;
+height: 35px;
+left: 22px;
+position: relative;
+top: -25px;
+width: 34px;
+}
+.cnt223 .x:hover{
+cursor: pointer;
+}
+    
+</style>
+<script type='text/javascript'>
+$(function(){
+var overlay = $('<div id="overlay"></div>');
+overlay.show();
+overlay.appendTo(document.body);
+$('.popup').show();
+$('.close').click(function(){
+$('.popup').hide();
+overlay.appendTo(document.body).remove();
+return false;
+});
+
+$('.x').click(function(){
+$('.popup').hide();
+overlay.appendTo(document.body).remove();
+return false;
+});
+});
+</script>
+<div class='popup'>
+<div class='cnt223'>
+<p>
+This website uses cookies to improve your user experience.
+<br/>
+<br/>
+    <a href='' class='close'><font size='4'>Accept</font></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</p>
+<a href='https://en.wikipedia.org/wiki/HTTP_cookie' target='_blank' class='learnmore'><u><font size='4'>Learn more</font></u></a>
+</div>
+</div>
+    
+    
+    <head>
+        <meta charset="UTF-8">
+        <!--<meta http-equiv="X-UA-Compatible" content="IE=edge">-->
+        <title>Zack Mathias</title><!--change to your name -->
+        <!--<meta name="description" content="An interactive getting started guide">-->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- change / playaround with different css elements to customize and build your own webpage-->
+        <style>
+            *{
+                box-sizing: border-box;
+            }
+            body {
+                margin: 0;
+            }
+            .top {
+                width: 100%;
+                height: 65px;
+                background-color: #336196;
+            }
+            .top a {
+                text-decoration: none;
+                color: white;
+                align-items: center;
+                justify-content: center;
+            }
+            .toptext {
+                display: inline-block;
+                color: white;
+                margin-top: -3px;
+                margin-left: 20px;
+            }
+            .header {
+                width: 100%;
+                height: 200px;
+                text-align: center;
+                background-color: #adf092;
+                color: black;
+                background-image: url("../Pictures/Badlands3.jpeg");
+                background-size: cover;
+            }
+            .navbar {
+                display: flex;
+                background-color: #7DA0B5;
+                width: 100%;
+                height: 40px;
+                color: white;
+            }
+            ul {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+            }
+            .navbar li {
+                float: left;
+            }
+            .navbar a {
+                display: block;
+                padding: 11px;
+                padding-left: 30px;
+                padding-right: 30px;
+                text-decoration: none;
+                color: white;
+            }
+            .navbar a:hover {
+                background-color: lightcyan;
+                color: black;
+            }
+            .column {
+                display: flex;
+                flex-wrap: wrap;
+            }
+            .leftsidebar{
+                flex: 10%;
+                height: 100vh;
+                background-color: #f5f7fa;
+            }
+            .lefttext {
+                margin-left: 15px;
+            }
+            .lefttext a {
+                display: block;
+                text-decoration: none;
+                color: black;
+                padding: 4px;
+            }
+            .lefttext a:hover {
+                background-color: #a6aaad;
+                color: white;
+            }
+            .main {
+                flex: 60%;
+                background-color: white;
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+            .rightsidebar {
+                flex: 15%;
+                height: 100vh;
+                background-color: #f5f7fa;
+                padding: 20px;
+            }
+            .rightpic {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .righttext {
+                text-align: center;
+            }
+            
+        </style>
+    </head>
+    <body>
+        <div class="top">  
+            <div class="toptext"><a href="example-02-03.html"><h2>Zack Mathias&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Geo 455 - Web mapping</h2></a>
+            </div>
+        </div>
+        <div class="header">
+        </div>
+        <div class="navbar">
+            <ul>
+                <li><a href="example-02-03.html">Home</a></li>
+                <li><a href="https://github.com/zmath43/geo455" target="_blank">My GitHub</a></li>
+                <li><a href="https://www.uwlax.edu/" target="_blank">UWL</a></li>
+                <li><a href="https://www.manchester.ac.uk" target="_blank">UoM</a></li>
+                <li><a href="Gallery.html">Gallery</a></li>
+            </ul>
+        </div>
+        <div class="column">
+            <div class="leftsidebar">
+                <div class="lefttext">
+                <h3>Lab Assignments</h3>
+                <ul class="menulist">
+                  <li class="menuitem"><a href="https://zmath43.github.io/geo455/lab_1/geo455_lab1.html" target="_blank">Lab 1</a></li>
+                  <li class="menuitem"><a href="https://zmath43.github.io/geo455/lab_2/geo455_lab2.html" target="_blank">Lab 2</a></li>
+                  <li class="menuitem"><a href="https://zmath43.github.io/geo455/lab_3/geo455_lab3.html" target="_blank">Lab 3</a></li>
+                  <li class="menuitem"><a href="https://zmath43.github.io/geo455/lab_4/geo455_lab4.html" target="_blank">Lab 4</a></li>
+                  <li class="menuitem"><a href="https://zmath43.github.io/geo455/lab_5/geo455_lab5.html" target="_blank">Lab 5</a></li>
+                  <li class="menuitem"><a href="https://zmath43.github.io/geo455/lab_6/geo455_lab6.html" target="_blank">Lab 6</a></li>
+                  <li class="menuitem"><a href="https://zmath43.github.io/geo455/lab_7/geo455_lab7.html" target="_blank">Lab 7</a></li>
+                  <li class="menuitem"><a href="https://zmath43.github.io/geo455/lab_8/geo455_lab8.html" target="_blank">Lab 8</a></li>
+                  <li class="menuitem"><a href="https://zmath43.github.io/geo455/lab_9/geo455_lab9.html" target="_blank">Lab 9</a></li>
+                </ul>
+                <h3>Exercises</h3>
+                 <ul  class="menulist">
+                    <li class="menuitem"><a href="https://zmath43.github.io/geo455/ex_1/geo455_ex1.html" target="_blank">Ex 1</a></li>
+                    <li class="menuitem"><a href="https://zmath43.github.io/geo455/ex_2/geo455_ex2.html" target="_blank">Ex 2</a></li>
+                    <li class="menuitem"><a href="https://zmath43.github.io/geo455/ex_3/geo455_ex3.html" target="_blank">Ex 3</a></li>
+                    <li class="menuitem"><a href="https://zmath43.github.io/geo455/ex_4/geo455_ex4.html" target="_blank">Ex 4</a></li>
+                    <li class="menuitem"><a href="https://zmath43.github.io/geo455/ex_5/geo455_ex5.html" target="_blank">Ex 5</a></li>
+                    <li class="menuitem"><a href="https://zmath43.github.io/geo455/ex_6/geo455_ex6.html" target="_blank">Ex 6</a></li>
+                </ul>
+                <h3>Final Project</h3>
+                 <ul  class="menulist">
+                    <li class="menuitem"><a href="https://zmath43.github.io/geo455/ex_1/final_project.html" target="_blank">Final Project</a></li>
+                </ul>
+                </div>
+            </div>
+            <div class="main"> 
+                <h2>About me</h2>
+                <p>My name is Zack and I'm a student from La Crosse, WI. I currently study geography at the University of Wisconsin - La Crosse, but I will start at The University of Manchester in the fall of 2022. My main interest in geography is sustainable development.<br><br>My favorite things to do are watch soccer and play soccer, but I enjoy just about any outdoor activity, music, and architecture as well. I can and will talk to anyone about soccer and music for as long as they'll let me.</p>
+           </div>
+            <div class="rightsidebar">
+                <div class="rightpic">
+                <img src="../Pictures/Badlands.JPG" align="center" width="200">
+                </div>
+                <div class="righttext">
+                <h3><u>Contact</u></h3>
+                email: <a href="mailto:mathias4294@uwlax.edu">mathias4294@uwlax.edu</a>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>               
+ 
+
+
+       
