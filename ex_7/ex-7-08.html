@@ -25,8 +25,8 @@
     <div id="map"></div>
     <script>
     
-// Bounds   long/lat  - feel free to change
-var bounds = [-91.24767126466358, 43.82383654812337, -91.20748926566223, 43.80826537588756];
+// Bounds   long/lat  - feel free to change 
+var bounds = [5.008057105441517, 46.94259319379644, 19.905518110471267, 35.844334210372566];
     
 // Initialize map
 var mymap = L.map("map").fitBounds([[bounds[1], bounds[0]], [bounds[3], bounds[2]]]);
@@ -36,8 +36,15 @@ L.tileLayer(
     {attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'}
 ).addTo(mymap);
 
-        
+var features = turf.featureCollection([
+  turf.point([17.40063528661671, 38.53937935173157], {"name": "Location A"}),
+  turf.point([10.325439942045062, 43.57225258760023], {"name": "Location B"}),
+  turf.point([15.24731496435577, 44.36295630794171], {"name": "Location C"})
+]);
 
+var enveloped = turf.envelope(features);
+        
+L.geoJSON(enveloped).addTo(mymap);
         
     </script>
 </body>

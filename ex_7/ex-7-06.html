@@ -25,8 +25,8 @@
     <div id="map"></div>
     <script>
     
-// Bounds   long/lat  
-var bounds = [-91.24767126466358, 43.82383654812337, -91.20748926566223, 43.80826537588756];
+// Bounds   long/lat
+var bounds = [-24.924269242081646, 66.72797051630376, -12.597609029955276, 63.20021414207384];
     
 // Initialize map
 var mymap = L.map("map").fitBounds([[bounds[1], bounds[0]], [bounds[3], bounds[2]]]);
@@ -50,13 +50,12 @@ var me = L.icon({
     popupAnchor: [15,10],
 });
         
-// Add random points
-var targetPoint = turf.point([-91.23176163704308, 43.81594921072007], {"marker-color": "#0F0"});
+// Add random points 
+var targetPoint = turf.point([-17.25581217607077, 65.03158549881984], {"marker-color": "#0F0"});
 var points = turf.featureCollection([
-    turf.point([-91.23936969689734, 43.81680581566446]),
-    turf.point([-91.23932097132852, 43.817786255647775]),
-    turf.point([ -91.22887096966582, 43.81261677078325]),
-    turf.point([ -91.23939169368956, 43.814414585537016,])
+    turf.point([-20.661573910258983, 64.56378326573558]),
+    turf.point([-20.13423015786855, 65.43657955158476]),
+    turf.point([-14.047804349028969, 65.57323220528806]),
 ]);
 
 var nearest = turf.nearestPoint(targetPoint, points);
@@ -75,7 +74,7 @@ L.geoJSON(targetPoint, {
 L.geoJSON(nearest, {
     pointToLayer: function(feature,latlng){
       return L.circleMarker(latlng,{
-          radius: 20,
+          radius: 200,
           stroke: true,
           color: 'red',
           opacity: 1,
