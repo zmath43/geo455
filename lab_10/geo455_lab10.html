@@ -1,1 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lab 10: Client-side processing with Turf.js</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <!-- Load Leaflet from CDN -->
+       <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
+       <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+       
+    <!-- Load TurfJS from CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@turf/turf@6/turf.min.js"></script>
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+        }
+        #title {
+                position: fixed;
+                margin-top: 0;
+                top: 10px;
+                left: 50px;
+                font-size: 2em;
+                font-family: "Lora", serif;
+                letter-spacing: .04em;
+                padding: 10px 15px;
+                background-color: rgba(255, 255, 255, 0.9);
+                border: 1px solid grey;
+                border-radius: 3px;
+                z-index: 800;
+            }
+        #description {
+                position: fixed;
+                bottom: 20px;
+                right: 10px;
+                width: 400px;
+                padding: 0px 15px;
+                background-color: rgb(255, 255, 255, 0.9);
+                border: 1px solid grey;
+                border-radius: 3px;
+                z-index: 800;
+            }
+        html, body, #map {
+            height: 100%;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div id="map"></div>
+    <div id="title">Lab 10: Draggable Great Circle with Midpoint</div>
+    <div id="description">
+             <h2>About this assignment</h2>
+        <p>This map uses <a href="https://turfjs.org" target="_blank">TurfJS</a> to show the great circle distance and midpoint between two points. The points can be dragged and moved to any location.</p>
+        </div>
+    <script>
+
+
+var mymap = L.map("map").setView([30, 60], 3);
+L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1Ijoiem1hdGg0MyIsImEiOiJja3o2MHU1bjMwNHBtMnVsNDBvNXVoOWlkIn0.8iNfv-_x21xx_RHUx_rRfQ', {
+    maxZoom: 18,
+    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, ' +
+        'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+    id: 'mapbox/outdoors-v11',
+}).addTo(mymap);      
+        
+var point_layer = L.layerGroup().addTo(mymap);
+var circle_layer = L.layerGroup().addTo(mymap);
+var midpoint_layer =L.layerGroup().addTo(mymap);
+
+var point1 = L.marker([3.7529340109039024, 8.782090363886685], {draggable: true}).addEventListener("drag", greatCircle).addTo(point_layer);
+var point2 = L.marker([35.010464363816034, 135.7685111630493], {draggable: true}).addEventListener("drag", greatCircle).addTo(point_layer);
+
+function greatCircle() {
+    circle_layer.clearLayers();
+    points = point_layer.toGeoJSON();
+    var circle = turf.greatCircle(points.features[0], points.features[1]);
+    L.geoJSON(circle).addTo(circle_layer);
+    
+    midpoint_layer.clearLayers();
+    var midpoint = turf.midpoint(points.features[0], points.features[1]);  
+    L.geoJSON(midpoint).addTo(midpoint_layer);
+    }
+greatCircle();
+
+    </script>
+</body>
+</html>
 
