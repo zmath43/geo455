@@ -74,8 +74,10 @@ var beatles = L.geoJSON(beatles, {
         return L.marker(latlng, {icon: myIcon1});
     }
 }).bindPopup(function (layer){
-    return layer.feature.properties.song 
-           + '<p style="color:blue">' + layer.feature.properties.lyric + '</p>';       
+    return '<b>Song: </b>' + layer.feature.properties.song +
+        '<br><b>Artist: </b>' + layer.feature.properties.artist +
+        '<br><b>Year: </b>' + layer.feature.properties.year +
+        '<p style="color:blue">' + '"' + layer.feature.properties.lyric + '"<br><br>' + '<img src="BeatlesForSale.jpg" style="width:150px; height:153.385px; display: block; margin-left: auto; margin-right: auto;">'
 }).addTo(mymap);
       
 //The Rolling Stones
@@ -85,8 +87,10 @@ var stones = L.geoJSON(stones, {
         return L.marker(latlng, {icon: myIcon2});
     }
 }).bindPopup(function (layer){
-    return layer.feature.properties.song 
-           + '<p style="color:blue">' + layer.feature.properties.lyric + '</p>';       
+    return '<b>Song: </b>' + layer.feature.properties.song +
+        '<br><b>Artist: </b>' + layer.feature.properties.artist +
+        '<br><b>Year: </b>' + layer.feature.properties.year +
+        '<p style="color:blue">' + '"' + layer.feature.properties.lyric + '"<br><br>' + '<img src="RollingStones.jpg" style="width:150px; height:128.32px; display: block; margin-left: auto; margin-right: auto;">';
 }).addTo(mymap);
         
 //The Kinks
@@ -96,8 +100,10 @@ var kinks = L.geoJSON(kinks, {
         return L.marker(latlng, {icon: myIcon3});
     }
 }).bindPopup(function (layer){
-    return layer.feature.properties.song 
-           + '<p style="color:blue">' + layer.feature.properties.lyric + '</p>';       
+    return '<b>Song: </b>' + layer.feature.properties.song +
+        '<br><b>Artist: </b>' + layer.feature.properties.artist +
+        '<br><b>Year: </b>' + layer.feature.properties.year +
+        '<p style="color:blue">' + '"' + layer.feature.properties.lyric + '"<br><br>' + '<img src="Kinks.jpg" style="width:150px; height:113.818px; display: block; margin-left: auto; margin-right: auto;">';
 }).addTo(mymap);
         
 
