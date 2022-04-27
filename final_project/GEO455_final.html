@@ -8,6 +8,18 @@
     <script src="GEO455_final.js"></script>
     <script src="GEO455_final_2.js"></script>
     <script src="GEO455_final_3.js"></script>
+    <script src="leaflet-heat.js"></script>
+    <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css">
+    
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css" integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ==" crossorigin="" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.3.0/dist/MarkerCluster.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.3.0/dist/MarkerCluster.Default.css" />
+
+  <script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js" integrity="sha512-/Nsx9X4HebavoBvEBuyp3I7od5tA0UzAxs+j83KgC8PU0kgB4XiK4Lfe4y4cgBtaRJQEIFCW+oC506aPT2L1zw==" crossorigin=""></script>
+  <script src="https://unpkg.com/leaflet.markercluster@1.3.0/dist/leaflet.markercluster.js"></script>
+    
+    
     <style>
         body {
             padding: 0;
@@ -17,21 +29,18 @@
             height: 100%;
             width: 100%;
         }
+        .leaflet-popup-content {
+            min-width: 300px;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
     <div id="map"></div>
     <script>
 
-let mymap = L.map("map").setView([30, -25], 3);
+let mymap = L.map("map").setView([30, 0], 2);
         
-        var streets = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiZ2NoYXVkaHVyaSIsImEiOiJjazBtcG5odG8wMDltM2JtcjdnYTgyanBnIn0.qwqjMomdrBMG36GQKXBlMw', {
-    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, ' +
-        'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-    id: 'mapbox/streets-v11',
-    tileSize: 512,
-    zoomOffset: -1
-});
 
 L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiZ2NoYXVkaHVyaSIsImEiOiJjazBtcG5odG8wMDltM2JtcjdnYTgyanBnIn0.qwqjMomdrBMG36GQKXBlMw', {
     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, ' +
@@ -39,9 +48,10 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
     id: 'mapbox/streets-v11',
     tileSize: 512,
     zoomOffset: -1,
-    minZoom: 3,
+    minZoom: 2,
     maxZoom: 19
 }).addTo(mymap);
+    
         
 var myIcon1 = L.icon({
     iconUrl: 'beatles_logo.png',
@@ -74,10 +84,10 @@ var beatles = L.geoJSON(beatles, {
         return L.marker(latlng, {icon: myIcon1});
     }
 }).bindPopup(function (layer){
-    return '<b>Song: </b>' + layer.feature.properties.song +
+    return layer.feature.properties.pic + '<br><b>Song: </b>' + layer.feature.properties.song +
         '<br><b>Artist: </b>' + layer.feature.properties.artist +
         '<br><b>Year: </b>' + layer.feature.properties.year +
-        '<p style="color:blue">' + '"' + layer.feature.properties.lyric + '"<br><br>' + '<img src="BeatlesForSale.jpg" style="width:150px; height:153.385px; display: block; margin-left: auto; margin-right: auto;">'
+        '<p style="color:blue">' + '"' + layer.feature.properties.lyric + '"'
 }).addTo(mymap);
       
 //The Rolling Stones
@@ -87,10 +97,10 @@ var stones = L.geoJSON(stones, {
         return L.marker(latlng, {icon: myIcon2});
     }
 }).bindPopup(function (layer){
-    return '<b>Song: </b>' + layer.feature.properties.song +
+   return layer.feature.properties.pic + '<br><b>Song: </b>' + layer.feature.properties.song +
         '<br><b>Artist: </b>' + layer.feature.properties.artist +
         '<br><b>Year: </b>' + layer.feature.properties.year +
-        '<p style="color:blue">' + '"' + layer.feature.properties.lyric + '"<br><br>' + '<img src="RollingStones.jpg" style="width:150px; height:128.32px; display: block; margin-left: auto; margin-right: auto;">';
+        '<p style="color:blue">' + '"' + layer.feature.properties.lyric + '"'
 }).addTo(mymap);
         
 //The Kinks
@@ -100,13 +110,64 @@ var kinks = L.geoJSON(kinks, {
         return L.marker(latlng, {icon: myIcon3});
     }
 }).bindPopup(function (layer){
-    return '<b>Song: </b>' + layer.feature.properties.song +
+   return layer.feature.properties.pic + '<br><b>Song: </b>' + layer.feature.properties.song +
         '<br><b>Artist: </b>' + layer.feature.properties.artist +
         '<br><b>Year: </b>' + layer.feature.properties.year +
-        '<p style="color:blue">' + '"' + layer.feature.properties.lyric + '"<br><br>' + '<img src="Kinks.jpg" style="width:150px; height:113.818px; display: block; margin-left: auto; margin-right: auto;">';
+        '<p style="color:blue">' + '"' + layer.feature.properties.lyric + '"'
 }).addTo(mymap);
         
+        
+var menu = {
+    "<img src='beatles_logo.png' height=16> The Beatles": beatles,
+    "<img src='rolling_stones_logo.png' height=16> The Rolling Stones": stones,
+    "<img src='kinks_logo.png' height=16> The Kinks": kinks,
+};
 
+var menu = L.control.layers({}, menu, {collapsed: false}).addTo(mymap);        
+
+///// Heatmap /////
+/*
+var min = 0;
+var max = 0;    
+
+var heatMapPoints = [];
+
+beatles.features.forEach(function(feature) {
+    heatMapPoints.push([feature.geometry.coordinates[1], feature.geometry.coordinates[0], feature.properties.count]);
+    if(feature.properties.count<min||min===0){
+        min=feature.properties.count;
+    }
+    if(feature.properties.count>max||max===0){
+        max=feature.properties.count;
+    }
+    
+})
+
+var heat = L.heatLayer(heatMapPoints, {
+    radius: 25,
+    minOpacity: 0.5,
+    gradient:{0.5: 'blue', 0.75: 'lime', 1: 'red'},
+}).addTo(mymap);
+    */
+///// Cluster map ////
+
+/*
+var clustermarkers = L.markerClusterGroup();
+beatles.features.forEach(function(feature) {
+    clustermarkers.addLayer(L.marker([feature.geometry.coordinates[1], feature.geometry.coordinates[0]]));
+})
+
+mymap.addLayer(clustermarkers);
+*/
+/*        
+var markers = L.markerClusterGroup();
+        
+var marker = L.marker(new L.LatLng(0, 0));
+        
+markers.addLayer(marker);
+        
+mymap.addLayer(markers);
+        
 var menu = {
     "<img src='beatles_logo.png' height=16> The Beatles": beatles,
     "<img src='rolling_stones_logo.png' height=16> The Rolling Stones": stones,
@@ -114,7 +175,7 @@ var menu = {
 };
 
 var menu = L.control.layers({}, menu, {collapsed: false}).addTo(mymap);
-
+*/
 
     </script>
 </body>
