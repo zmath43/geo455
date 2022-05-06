@@ -240,7 +240,8 @@ var beatles = L.geoJSON(beatles, {
     pointToLayer: function(feature,latlng){
         var marker = L.marker(latlng, {icon: myIcon1});
     marker.bindPopup(feature.properties.pic + '<br><b>Song: </b>' + feature.properties.song +
-        '<br><b>Artist: </b>' + feature.properties.artist +
+        '<br><b>Artist: </b>' + feature.properties.artist + 
+        '<br><b>Album: </b>' + feature.properties.album +
         '<br><b>Year: </b>' + feature.properties.year +
         '<p style="color:blue">' + '"' + feature.properties.lyric + '"');
         return marker;
@@ -254,7 +255,8 @@ var stones = L.geoJSON(stones, {
     pointToLayer: function(feature,latlng){
         var marker = L.marker(latlng, {icon: myIcon2});
     marker.bindPopup(feature.properties.pic + '<br><b>Song: </b>' + feature.properties.song +
-        '<br><b>Artist: </b>' + feature.properties.artist +
+        '<br><b>Artist: </b>' + feature.properties.artist + 
+        '<br><b>Album: </b>' + feature.properties.album +
         '<br><b>Year: </b>' + feature.properties.year +
         '<p style="color:blue">' + '"' + feature.properties.lyric + '"');
         return marker;
@@ -268,7 +270,8 @@ var kinks = L.geoJSON(kinks, {
     pointToLayer: function(feature,latlng){
         var marker = L.marker(latlng, {icon: myIcon3});
     marker.bindPopup(feature.properties.pic + '<br><b>Song: </b>' + feature.properties.song +
-        '<br><b>Artist: </b>' + feature.properties.artist +
+        '<br><b>Artist: </b>' + feature.properties.artist + 
+        '<br><b>Album: </b>' + feature.properties.album +
         '<br><b>Year: </b>' + feature.properties.year +
         '<p style="color:blue">' + '"' + feature.properties.lyric + '"');
         return marker;
